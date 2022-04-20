@@ -1,11 +1,19 @@
 import React from "react";
 import { GlobalStyle } from "./assets/styles/global";
+import { BrowserRouter } from "react-router-dom";
+
+import Header from "./components/Header";
+import PageRoutes from "./routes";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Hello world!</h1>
+      <BrowserRouter>
+        <Header />
+
+        <PageRoutes />
+      </BrowserRouter>
     </>
   );
 }

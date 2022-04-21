@@ -24,13 +24,13 @@ body{
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
-  background-color: ${colors.darkPurple};
-  width: 15px;
+  background-color: ${colors.darkestPurple};
+  width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    width: 15px;
-    background-color: ${colors.lightPurple};
+    width: 10px;
+    background-color: ${colors.darkPurple};
     border-radius: 10px;
 }
 `;

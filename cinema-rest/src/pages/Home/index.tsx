@@ -93,11 +93,10 @@ function Home() {
         });
       })
       .catch((err: any) => {
-        // console.log(err.response.data);
         setAlert({
           state: true,
           status: "error",
-          message: err.response.data,
+          message: err.response.data.message,
         });
       });
   };
@@ -111,7 +110,7 @@ function Home() {
       {alert.state && (
         <Alert status={alert.status}>
           <AlertIcon />
-          <AlertTitle mr={2}>{alert.message}</AlertTitle>
+          <AlertTitle mr={3}>{alert.message}</AlertTitle>
           <CloseButton
             onClick={() => setAlert({ state: false })}
             position="absolute"

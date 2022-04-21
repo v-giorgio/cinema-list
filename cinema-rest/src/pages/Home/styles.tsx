@@ -3,10 +3,11 @@ import bg from "../../assets/img/background-image.png";
 import { colors } from "../../assets/styles/theme";
 
 export const HomeContainer = styled.section`
-  height: 100vh;
+  height: 1000px;
   background-image: url(${bg});
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: ${colors.darkestPurple};
 `;
 
 export const InputArea = styled.div`
@@ -26,6 +27,7 @@ export const Input = styled.input`
   font-family: "Inter";
   font-style: italic;
   font-size: 14px;
+  box-shadow: 0 0 0.5rem ${colors.lightPurple};
 
   ::placeholder {
     color: ${colors.darkestPurple};

@@ -1,19 +1,24 @@
 import React from "react";
 import { GlobalStyle } from "./assets/styles/global";
 import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import PageRoutes from "./routes";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <BrowserRouter>
-        <Header />
+      <ChakraProvider>
+        <GlobalStyle />
+        <BrowserRouter>
+          <Header />
 
-        <PageRoutes />
-      </BrowserRouter>
+          <PageRoutes />
+          <Footer />
+        </BrowserRouter>
+      </ChakraProvider>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Route, Routes } from "react-router-dom";
+import Contact from "../pages/Contact";
 import Home from "../pages/Home";
 
 function PageRoutes() {
@@ -10,9 +11,8 @@ function PageRoutes() {
         <Route path="/" element={<Home />} />{" "}
         {/*
                 <Route path="/list" element={<FilmList />} />
-                <Route path="/edit/:id" element={<EditFilm />} />
-                <Route path="/contact" element={<Contact />} /> 
-                */}
+  <Route path="/edit/:id" element={<EditFilm />} /> */}
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );

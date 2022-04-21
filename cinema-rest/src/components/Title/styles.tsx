@@ -19,4 +19,5 @@ export const TitleText = styled.h1`
   padding: 1.5%;
   border-radius: 10px;
   letter-spacing: 2px;
+  text-transform: uppercase;
 `;

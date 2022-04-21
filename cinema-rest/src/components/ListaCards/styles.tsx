@@ -20,21 +20,17 @@ export const CardImg = styled.div.attrs((props: { image: string }) => props)`
   border-radius: 22px 22px 0 0;
 `;
 export const CardTitulo = styled.p`
+  font-family: 'Inter';
   display: flex;
   margin-top: 31px;
-  text-align: left;
   font-style: normal;
   font-weight: 900;
   font-size: 32px;
   line-height: 39px;
   `;
 
-  export const IconStar = styled.img`
-  margin-left: 600px;
-
-  `;
-
   export const CardData = styled.p`
+  font-family: 'Inter';
   display: flex;
   margin-top: 8px;
   text-align: left;
@@ -45,13 +41,44 @@ export const CardTitulo = styled.p`
   `;
 
   export const CardText = styled.p`
+  font-family: 'Inter';
   margin-top: 8px;
+  max-width: 800px;
   text-align: left;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 400;
   font-size: 24px;
   line-height: 29.05px;
   `;
+
+export const Star= styled.div`
+  position: absolute;
+  left: 75%;
+  margin-top: 22px;
+`;
+
+export const Text= styled.div`
+  position: absolute;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 39px;
+  left: 79%;
+  margin-top: 30px;
+`;
+
+export const Deleteicon= styled.div`
+  position: absolute;
+  left: 75%;
+  bottom:16px; 
+`;
+
+export const Editicon= styled.div`
+  position: absolute;
+  left: 79%;
+  bottom:16px; 
+`;
 
 export const CardDiv = styled.div`
   margin-left: 53px;

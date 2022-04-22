@@ -5,7 +5,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ListaCards from "./components/ListaCards";
 import PageRoutes from "./routes";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
 
           <PageRoutes />
           <Footer />
+          <ListaCards/>
         </BrowserRouter>
       </ChakraProvider>
     </>

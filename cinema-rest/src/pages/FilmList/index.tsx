@@ -90,6 +90,9 @@ function FilmList() {
           status: "success",
           message: "Filme deletado com sucesso.",
         });
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       })
       .catch((err: any) => {
         // console.log(err);
@@ -115,8 +118,10 @@ function FilmList() {
   }, [movieInfo]);
 
   useEffect(() => {
-    setFilterReady(true);
-    setReady(false);
+    if (filteredMovie?.poster_url) {
+      setFilterReady(true);
+      setReady(false);
+    }
   }, [filteredMovie]);
 
   return (
@@ -193,8 +198,8 @@ function FilmList() {
             movieRating={filteredMovie?.rating_avg}
             movieAge={filteredMovie?.min_age}
             movieId={filteredMovie?.id}
-            handleEdit={deleteMovie}
-            handleDelete={editMovie}
+            handleEdit={editMovie}
+            handleDelete={deleteMovie}
           />
         </>
       )}

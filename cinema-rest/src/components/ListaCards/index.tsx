@@ -60,15 +60,12 @@ function ListaCards({
       </Rating>
 
       <Editicon onClick={handleEdit}>
-        <img
-          src={require("../../assets/img/delete-icon.png")}
-          alt="edit movie"
-        />
+        <img src={require("../../assets/img/edit-icon.png")} alt="edit movie" />
       </Editicon>
 
-      <Deleteicon onClick={handleDelete}>
+      <Deleteicon onClick={() => handleDelete(movieId)}>
         <img
-          src={require("../../assets/img/edit-icon.png")}
+          src={require("../../assets/img/delete-icon.png")}
           alt="delete movie"
         />
       </Deleteicon>

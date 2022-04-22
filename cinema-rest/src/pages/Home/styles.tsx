@@ -55,7 +55,12 @@ export const SearchIcon = styled.img`
 export const ErrorSpan = styled.span`
   margin-top: 1.5%;
   color: ${colors.light};
+  background-color: darkred;
+  padding: 5px 10px;
+  border-radius: 22px;
+  font-size: 20px;
   margin: 0 auto;
+  margin-top: 10px;
   justify-content: center;
   // background-color: ${colors.light};
   // padding: 3%;

@@ -1,55 +1,77 @@
 import React from "react";
 
-import { CardSection, CardTitulo, AddButton, Star, Text, Editicon, Deleteicon,  CardData, CardText, CardDiv } from "./styles";
+import {
+  CardSection,
+  CardTitulo,
+  Text,
+  Editicon,
+  Deleteicon,
+  CardData,
+  CardText,
+  CardDiv,
+  CardTag,
+  Rating,
+  Image,
+} from "./styles";
 
-
-function ListaCards({ url, title, addItem }: any) {
+function ListaCards({
+  url,
+  alt,
+  movieTitle,
+  movieYear,
+  movieDirector,
+  movieLanguage,
+  movieGenre,
+  movieAge,
+  movieDescription,
+  movieRating,
+  movieDuration,
+  movieId,
+  handleEdit,
+  handleDelete,
+}: any) {
   return (
     <CardSection>
-            <img src={require("../../assets/img/filme.png")} alt="Filme exemplo" />
-        <CardDiv>
-          <CardTitulo>
-            Nome do Filme
-          </CardTitulo>
-          <CardData>
-            2009
-          </CardData>
-          <CardText>
-            <strong>Diretor:</strong>  Lorem ipsum
-          </CardText>  
-          <CardText>
-            <strong>Linguagem:</strong> Lorem ipsum
-          </CardText> 
-          <CardText>
-            <strong>Classificação indicativa:</strong> 18
-          </CardText> 
-          <CardText>
-            <strong>Descrição:</strong> Lorem m Lorem ipsum Lorem Lorem m Lorem ipsum Lorem Lorem m Lorem ipsum LoremLorem m Lorem ipsum LoremLorem m Lorem ipsum Lorem Lorem m Lorem ipsum Lorem Lorem m Lorem ipsum LoremLorem m Lorem ipsum LoremLorem m Lorem ipsum Lorem Lorem m Lorem ipsum Lorem Lorem m Lorem ipsum LoremLorem m Lorem ipsum Lorem
-          </CardText>             
-          
-        </CardDiv>
-          
-          <Star>
-            <img src={require("../../assets/img/star-icon.png")} alt="icon star" />
-          </Star>
+      <Image src={url} alt={alt} />
+      <CardDiv>
+        <CardTitulo>{movieTitle}</CardTitulo>
+        <CardData>{movieYear}</CardData>
+        <CardData>{movieDuration} min</CardData>
+        <CardText>
+          <CardTag>Diretor:</CardTag> {movieDirector}
+        </CardText>
+        <CardText>
+          <CardTag>Linguagem:</CardTag> {movieLanguage}
+        </CardText>
+        <CardText>
+          <CardTag>Gênero:</CardTag> {movieGenre}
+        </CardText>
+        <CardText>
+          <CardTag>Classificação indicativa:</CardTag> {movieAge}
+        </CardText>
+        <CardText>
+          <CardTag>Descrição:</CardTag> {movieDescription}
+        </CardText>
+      </CardDiv>
 
-          <Text>
-            4.8
-          </Text>
+      <Rating>
+        <Text>{movieRating}</Text>
+        <img src={require("../../assets/img/star-icon.png")} alt="icon star" />
+      </Rating>
 
-          <Editicon>
-            <img src={require("../../assets/img/delete-icon.png")} alt="edit star" />
-          </Editicon>
+      <Editicon onClick={handleEdit}>
+        <img
+          src={require("../../assets/img/delete-icon.png")}
+          alt="edit movie"
+        />
+      </Editicon>
 
-          <Deleteicon>
-            <img src={require("../../assets/img/edit-icon.png")} alt="edit star" />
-          </Deleteicon>
-          
-
-      {/* <CardImg image={url} /> */}
-        <AddButton onClick={addItem}>
-          {/* <IconAdd /> */}
-        </AddButton>
+      <Deleteicon onClick={handleDelete}>
+        <img
+          src={require("../../assets/img/edit-icon.png")}
+          alt="delete movie"
+        />
+      </Deleteicon>
     </CardSection>
   );
 }

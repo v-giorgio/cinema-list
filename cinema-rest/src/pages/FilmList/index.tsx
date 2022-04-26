@@ -11,6 +11,8 @@ import Title from "../../components/Title";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { Alert, AlertIcon, AlertTitle, CloseButton } from "@chakra-ui/react";
 
+import { useNavigate } from "react-router-dom";
+
 import api from "../../services/api";
 import ListaCards from "../../components/ListaCards";
 
@@ -24,6 +26,8 @@ function FilmList() {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
+
+  const navigate = useNavigate();
 
   const [alert, setAlert] = useState<any>({
     state: false,
@@ -104,7 +108,9 @@ function FilmList() {
       });
   };
 
-  const editMovie = async (id: any) => {};
+  const editMovie = async (id: any) => {
+    navigate(`/edit/${id}`);
+  };
 
   useEffect(() => {
     getAllMovies();

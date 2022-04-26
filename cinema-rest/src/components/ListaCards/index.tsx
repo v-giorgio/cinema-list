@@ -59,7 +59,7 @@ function ListaCards({
         <img src={require("../../assets/img/star-icon.png")} alt="icon star" />
       </Rating>
 
-      <Editicon onClick={handleEdit}>
+      <Editicon onClick={() => handleEdit(movieId)}>
         <img src={require("../../assets/img/edit-icon.png")} alt="edit movie" />
       </Editicon>
 

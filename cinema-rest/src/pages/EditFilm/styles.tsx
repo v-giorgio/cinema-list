@@ -8,15 +8,27 @@ export const HomeContainer = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   background-color: ${colors.darkestPurple};
-  padding-bottom: 100px;
 `;
 
 export const InputArea = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  margin: 0 auto;
   margin-top: 3%;
+`;
+
+export const InputLabel = styled.h1`
+  background: ${colors.darkestPurple};
+  color: ${colors.light};
+  text-align: center;
+  font-size: 28px;
+  padding: 0 0.75%;
+  border-radius: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 0.5rem ${colors.lightPurple};
 `;
 
 export const Input = styled.input`
@@ -46,13 +58,6 @@ export const Input = styled.input`
   }
 `;
 
-export const SearchIcon = styled.img`
-  :focus,
-  :hover {
-    cursor: pointer;
-  }
-`;
-
 export const ErrorSpan = styled.span`
   margin-top: 1.5%;
   color: ${colors.light};
@@ -65,27 +70,4 @@ export const ErrorSpan = styled.span`
   justify-content: center;
   // background-color: ${colors.light};
   // padding: 3%;
-`;
-
-export const BackButton = styled.button`
-  border: 2px solid ${colors.darkPurple};
-  padding: 10px 35px;
-  background-color: ${colors.darkestPurple};
-  color: ${colors.light};
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 22px;
-  display: flex;
-  margin: 20px auto;
-
-  :hover {
-    background-color: ${colors.light};
-    color: ${colors.darkestPurple};
-  }
-
-  :hover,
-  :not(:hover) {
-    transition-duration: 0.3s;
-  }
 `;

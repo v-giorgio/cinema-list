@@ -93,7 +93,7 @@ npm install
 
 <br>
 
-#### 4️⃣ Execute o projeto
+#### 5️⃣ Execute o projeto
 
 ```
 npm start

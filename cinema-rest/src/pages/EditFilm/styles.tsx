@@ -8,6 +8,7 @@ export const HomeContainer = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   background-color: ${colors.darkestPurple};
+  padding-bottom: 100px;
 `;
 
 export const InputArea = styled.div`
@@ -44,6 +45,36 @@ export const Input = styled.input`
 
   ::placeholder {
     color: ${colors.darkestPurple};
+    opacity: 0.5;
+  }
+
+  :focus,
+  :hover {
+    box-shadow: 0 0 0.5rem ${colors.darkPurple};
+  }
+
+  :focus,
+  :hover,
+  :not(:hover) {
+    transition-duration: 0.2s;
+  }
+`;
+
+export const InputTextArea = styled.textarea`
+  margin-right: 1%;
+  width: 30%;
+  padding: 15px;
+  border-radius: 30px;
+  border: 4px solid ${colors.darkPurple};
+  font-family: "Inter";
+  font-style: italic;
+  font-size: 14px;
+  box-shadow: 0 0 0.5rem ${colors.lightPurple};
+  resize: none;
+
+  ::placeholder {
+    color: ${colors.darkestPurple};
+    opacity: 0.5;
   }
 
   :focus,

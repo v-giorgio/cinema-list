@@ -5,6 +5,7 @@ import {
   Input,
   InputArea,
   InputLabel,
+  InputTextArea,
 } from "./styles";
 import Title from "../../components/Title";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
@@ -32,6 +33,7 @@ function FilmList() {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>();
 
@@ -42,6 +44,7 @@ function FilmList() {
     status: "",
     message: "",
   });
+
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -51,18 +54,19 @@ function FilmList() {
       await api
         .get(`/movies/${id}`)
         .then(async (res: any) => {
+          console.log(res.data);
           setMovieInfo({
             id: id,
-            title: res.title,
-            director: res.director,
-            language: res.language,
-            genre: res.genre,
-            release_year: res.release_year,
-            rating_avg: res.rating_avg,
-            description: res.description,
-            duration: res.duration,
-            poster_url: res.poster_url,
-            min_age: res.min_age,
+            title: res.data.title,
+            director: res.data.director,
+            language: res.data.language,
+            genre: res.data.genre,
+            release_year: res.data.release_year,
+            rating_avg: res.data.rating_avg,
+            description: res.data.description,
+            duration: res.data.duration,
+            poster_url: res.data.poster_url,
+            min_age: res.data.min_age,
           });
         })
         .catch((err: any) => {
@@ -84,10 +88,9 @@ function FilmList() {
         });
         setTimeout(() => {
           navigate(`/list`);
-        }, 1000);
+        }, 2000);
       })
       .catch((err: any) => {
-        // console.log(err);
         setAlert({
           state: true,
           status: "error",
@@ -96,20 +99,24 @@ function FilmList() {
       });
   };
 
+  useEffect(() => {
+    reset({
+      id: id,
+      title: movieInfo?.title,
+      director: movieInfo?.director,
+      language: movieInfo?.language,
+      genre: movieInfo?.genre,
+      release_year: movieInfo?.release_year,
+      rating_avg: movieInfo?.rating_avg,
+      description: movieInfo?.description,
+      duration: movieInfo?.duration,
+      poster_url: movieInfo?.poster_url,
+      min_age: movieInfo?.min_age,
+    });
+  }, [movieInfo]);
+
   return (
     <HomeContainer>
-      {alert.state && (
-        <Alert status={alert.status}>
-          <AlertIcon />
-          <AlertTitle mr={3}>{alert.message}</AlertTitle>
-          <CloseButton
-            onClick={() => setAlert({ state: false })}
-            position="absolute"
-            right="8px"
-            top="8px"
-          />
-        </Alert>
-      )}
       <Title title="Editar filme" />
 
       {/* Movie title */}
@@ -121,9 +128,13 @@ function FilmList() {
           rules={{
             required: "Campo obrigatório",
           }}
-          defaultValue={movieInfo?.title}
           render={({ field }) => (
-            <Input {...field} placeholder="Nome do filme" type="text" />
+            <Input
+              defaultValue={movieInfo?.title}
+              {...field}
+              placeholder="Nome do filme"
+              type="text"
+            />
           )}
         />
       </InputArea>
@@ -144,9 +155,9 @@ function FilmList() {
           render={({ field }) => (
             <Input
               {...field}
-              placeholder="Ano de lançamento"
+              placeholder="2005"
               type="number"
-              style={{ width: "20%" }}
+              style={{ width: "10%", textAlign: "center" }}
             />
           )}
         />
@@ -195,15 +206,139 @@ function FilmList() {
         {errors?.language && <ErrorSpan>{errors?.language.message}</ErrorSpan>}
       </div>
 
-      {/**
-       * TO DO:
-       * - Implementar inputs de Gênero, Classificação Indicativa, Média de avaliações,
-       *  Descrição, URL do poster
-       * - Preenchimento do formulário
-       * - Envio dos dados para atualizar o filme
-       */}
+      {/* Movie Genre */}
+      <InputArea>
+        <InputLabel>Gênero</InputLabel>
+        <Controller
+          name="genre"
+          control={control}
+          rules={{
+            required: "Campo obrigatório",
+          }}
+          defaultValue={movieInfo?.genre}
+          render={({ field }) => (
+            <Input {...field} placeholder="Drama" type="text" />
+          )}
+        />
+      </InputArea>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {errors?.genre && <ErrorSpan>{errors?.genre.message}</ErrorSpan>}
+      </div>
 
-      <Button title="Editar" handleForm={onSubmit} />
+      {/* Movie Min age */}
+      <InputArea>
+        <InputLabel>Classificação indicativa</InputLabel>
+        <Controller
+          name="min_age"
+          control={control}
+          rules={{
+            required: "Campo obrigatório",
+          }}
+          defaultValue={movieInfo?.min_age}
+          render={({ field }) => (
+            <Input
+              {...field}
+              placeholder="L"
+              type="text"
+              style={{ width: "10%", textAlign: "center" }}
+            />
+          )}
+        />
+      </InputArea>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {errors?.min_age && <ErrorSpan>{errors?.min_age.message}</ErrorSpan>}
+      </div>
+
+      {/* Movie Rating average */}
+      <InputArea>
+        <InputLabel>Média de avaliações</InputLabel>
+        <Controller
+          name="rating_avg"
+          control={control}
+          rules={{
+            required: "Campo obrigatório",
+          }}
+          defaultValue={movieInfo?.rating_avg}
+          render={({ field }) => (
+            <Input
+              {...field}
+              placeholder="8.6"
+              type="text"
+              style={{ width: "10%", textAlign: "center" }}
+            />
+          )}
+        />
+      </InputArea>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {errors?.rating_avg && (
+          <ErrorSpan>{errors?.rating_avg.message}</ErrorSpan>
+        )}
+      </div>
+
+      {/* Movie Description */}
+      <InputArea>
+        <InputLabel>Descrição</InputLabel>
+        <Controller
+          name="description"
+          control={control}
+          rules={{
+            required: "Campo obrigatório",
+          }}
+          defaultValue={movieInfo?.description}
+          render={({ field }) => (
+            <InputTextArea
+              {...field}
+              placeholder="The movie is about ..."
+              cols={40}
+              rows={20}
+            />
+          )}
+        />
+      </InputArea>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {errors?.description && (
+          <ErrorSpan>{errors?.description.message}</ErrorSpan>
+        )}
+      </div>
+
+      {/* Movie Poster URL */}
+      <InputArea>
+        <InputLabel>Link do Poster</InputLabel>
+        <Controller
+          name="poster_url"
+          control={control}
+          rules={{
+            required: "Campo obrigatório",
+          }}
+          defaultValue={movieInfo?.poster_url}
+          render={({ field }) => (
+            <Input
+              {...field}
+              placeholder="https://image.com/image.jpg"
+              type="text"
+            />
+          )}
+        />
+      </InputArea>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {errors?.poster_url && (
+          <ErrorSpan>{errors?.poster_url.message}</ErrorSpan>
+        )}
+      </div>
+
+      {alert.state && (
+        <Alert style={{ marginTop: 10 }} status={alert.status}>
+          <AlertIcon />
+          <AlertTitle mr={3}>{alert.message}</AlertTitle>
+          <CloseButton
+            onClick={() => setAlert({ state: false })}
+            position="absolute"
+            right="8px"
+            bottom="8px"
+          />
+        </Alert>
+      )}
+      <Button title="Editar" handleForm={handleSubmit(onSubmit)} />
     </HomeContainer>
   );
 }

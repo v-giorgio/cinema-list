@@ -1,5 +1,8 @@
-import { Container, chakra } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 import { motion, isValidMotionProp } from "framer-motion";
+import { ReactComponent as Logo } from "../../assets/img/logo.svg";
+
+import { colors } from "../../assets/styles/theme";
 
 const ChakraBox = chakra(motion.div, {
   shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === "children",
@@ -7,29 +10,38 @@ const ChakraBox = chakra(motion.div, {
 
 export default function Animation() {
   return (
-    <Container h="100vh" d="flex" alignItems="center" justifyContent="center">
+    <div
+      style={{
+        backgroundColor: colors.darkestPurple,
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <ChakraBox
         animate={{
           scale: [1, 2, 2, 1, 1],
           rotate: [0, 0, 270, 270, 0],
-          borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+          borderRadius: ["10%", "10%", "50%", "50%", "10%"],
         }}
         transition={{
-          duration: 3,
+          duration: 4,
           ease: "easeInOut",
           repeat: Infinity,
           repeatType: "loop",
         }}
-        padding="2"
-        bgGradient="linear(to-l, #7928CA, #FF0080)"
+        style={{ padding: 80 }}
+        bgGradient="linear(to-l, #A63EC5, #4C0070)"
         display="flex"
         justifyContent="center"
         alignItems="center"
-        width="100px"
-        height="100px"
+        width="20%"
+        height="10%"
       >
-        Cinerest!
+        <Logo />
       </ChakraBox>
-    </Container>
+    </div>
   );
 }

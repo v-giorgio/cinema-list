@@ -31,6 +31,24 @@ O usuário poderá realizar as seguintes atividades:
 
 <br>
 
+## 🖌️ Prototipagem
+
+- [Figma](https://www.figma.com/file/BlL5SfCWgbpDhJCYYfVKsV/Prot%C3%B3tipo?node-id=0%3A1)
+
+---
+
+<br>
+
+## 📷 Demonstração
+
+<img src="./cinema-rest/src/assets/img/demo-1.png" />
+<img src="./cinema-rest/src/assets/img/demo-2.png" />
+<img src="./cinema-rest/src/assets/img/demo-3.png" />
+
+---
+
+<br>
+
 ## 🛠️ Tecnologias e ferramentas
 
 Foram utilizadas as seguintes tecnologias e ferramentas no projeto:

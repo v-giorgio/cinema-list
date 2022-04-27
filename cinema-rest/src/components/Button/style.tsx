@@ -4,19 +4,19 @@ import { colors } from "../../assets/styles/theme";
 export const FormButton = styled.button`
   background: ${colors.darkestPurple};
   color: ${colors.light};
-  width: 300px;
-  height: 86px;
+  width: 15%;
   font-size: 32px;
-  padding: 30px;
   font-weight: 600;
   border-radius: 30px;
+  padding: 10px 0;
   text-transform: uppercase;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 100px;
+  box-shadow: 0 0 0.5rem ${colors.lightPurple};
 
   :hover {
     color: ${colors.darkestPurple};

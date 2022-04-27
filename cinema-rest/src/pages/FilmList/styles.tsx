@@ -32,6 +32,7 @@ export const Input = styled.input`
 
   ::placeholder {
     color: ${colors.darkestPurple};
+    opacity: 0.5;
   }
 
   :focus,

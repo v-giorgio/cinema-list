@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setAnimation(false);
-    }, 3000);
+    }, 4000);
   }, []);
 
   return (

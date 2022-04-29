@@ -29,6 +29,12 @@ O usuário poderá realizar as seguintes atividades:
 
 ---
 
+Para a integração com o Back-end, foi utilizada uma API com deploy no [Heroku](https://cinema-api-resilia.herokuapp.com). Caso deseje utilizá-la em sua máquina, ou apenas dar uma olhada, vá para o repositório:
+
+- [CinemaAPI](https://github.com/v-giorgio/cinema-api)
+
+---
+
 <br>
 
 ## 🖌️ Prototipagem
